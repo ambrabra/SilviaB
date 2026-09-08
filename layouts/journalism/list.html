@@ -1,0 +1,24 @@
+{{ define "main" }}
+<article class="page list-page">
+  <h1>{{ .Title }}</h1>
+  {{ if .Content }}<div class="prose intro">{{ .Content }}</div>{{ end }}
+  <div class="card-grid">
+    {{ range .Pages }}
+    <div class="card">
+      {{ with .Params.photo }}
+      <img class="card-photo" src="{{ . | relURL }}" alt="{{ $.Title }}">
+      {{ end }}
+      <div class="card-body">
+        {{ if .Params.themes }}
+        <div class="tags">
+          {{ range .Params.themes }}<span class="tag">{{ . }}</span>{{ end }}
+        </div>
+        {{ end }}
+        <h2 class="card-title">{{ .Title }}</h2>
+        <a class="read-more" href="{{ .RelPermalink }}">Read More →</a>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</article>
+{{ end }}

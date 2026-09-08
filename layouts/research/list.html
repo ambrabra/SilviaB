@@ -1,0 +1,24 @@
+{{ define "main" }}
+<article class="page list-page">
+  <h1>{{ .Title }}</h1>
+  {{ with .Params.cover_image }}
+  <img class="cover-image" src="{{ . | relURL }}" alt="{{ $.Title }}">
+  {{ end }}
+  {{ if .Content }}<div class="prose intro">{{ .Content }}</div>{{ end }}
+  <ul class="entry-list">
+    {{ range .Pages }}
+    <li class="entry">
+      <span class="entry-title">
+        {{ if .Params.pdf }}
+          <a href="{{ .Params.pdf | relURL }}" target="_blank" rel="noopener">{{ .Title }}</a>
+        {{ else }}
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        {{ end }}
+      </span>
+      {{ if .Params.note }}<span class="entry-note">— {{ .Params.note }}</span>{{ end }}
+      {{ if .Params.pdf }}<span class="pdf-tag">PDF</span>{{ end }}
+    </li>
+    {{ end }}
+  </ul>
+</article>
+{{ end }}

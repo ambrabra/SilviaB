@@ -1,0 +1,21 @@
+{{ define "main" }}
+<article class="page journalism-single">
+  {{ if .Params.themes }}
+  <div class="tags">
+    {{ range .Params.themes }}<span class="tag">{{ . }}</span>{{ end }}
+  </div>
+  {{ end }}
+  <h1>{{ .Title }}</h1>
+  {{ with .Params.photo }}
+  <img class="single-photo" src="{{ . | relURL }}" alt="{{ $.Title }}">
+  {{ end }}
+  <div class="prose intro">
+    {{ .Content }}
+  </div>
+  <div class="pdf-links">
+    {{ with .Params.pdf1 }}<a class="pdf-link" href="{{ . | relURL }}" target="_blank" rel="noopener">{{ $.Params.pdf1_label | default "Read the full article (PDF)" }}</a>{{ end }}
+    {{ with .Params.pdf2 }}<a class="pdf-link" href="{{ . | relURL }}" target="_blank" rel="noopener">{{ $.Params.pdf2_label | default "Related PDF" }}</a>{{ end }}
+  </div>
+  <a class="back-link" href="{{ "/journalism/" | relURL }}">← Back to Journalism</a>
+</article>
+{{ end }}

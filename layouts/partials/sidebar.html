@@ -1,0 +1,13 @@
+<nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="{{ "/" | relURL }}" class="site-title">{{ .Site.Title }}</a>
+    {{ with .Site.Params.tagline }}<p class="tagline">{{ . }}</p>{{ end }}
+  </div>
+  <ul class="menu">
+    {{ range .Site.Menus.main }}
+    <li class="{{ if $.IsMenuCurrent "main" . }}active{{ end }}">
+      <a href="{{ .URL | relURL }}">{{ .Name }}</a>
+    </li>
+    {{ end }}
+  </ul>
+</nav>

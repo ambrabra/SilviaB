@@ -1,0 +1,199 @@
+:root {
+  --serif: "Fraunces", Georgia, serif;
+  --sans: "Inter", -apple-system, sans-serif;
+  --ink: #1a1a1a;
+  --paper: #fbfaf8;
+  --muted: #6b6b6b;
+  --line: #e2ded8;
+  --accent: #8a6d3b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--paper);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line); }
+a:hover { border-color: var(--ink); }
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  padding: 3rem 2rem;
+  border-right: 1px solid var(--line);
+}
+
+.site-title {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 500;
+  border: none;
+  display: block;
+}
+
+.tagline {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin: 0.4rem 0 2rem;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li { margin-bottom: 1rem; }
+
+.menu a {
+  border: none;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.menu li.active a,
+.menu a:hover { color: var(--ink); }
+
+/* Content */
+.content {
+  flex: 1;
+  padding: 3rem 3rem 6rem;
+  max-width: 720px;
+}
+
+h1 {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 2.1rem;
+  margin: 0 0 1.5rem;
+}
+
+.prose p { margin: 0 0 1.2rem; }
+
+.cover-image, .single-photo {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+/* Simple entry lists */
+.entry-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.entry {
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+
+.entry-date {
+  color: var(--muted);
+  font-size: 0.85rem;
+  min-width: 90px;
+}
+
+.entry-note {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.pdf-tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 3px;
+  padding: 0.1rem 0.4rem;
+}
+
+/* Journalism card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.card-photo {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+}
+
+.card-body { padding-top: 0.8rem; }
+
+.tags { margin-bottom: 0.4rem; }
+
+.tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  margin-right: 0.6rem;
+}
+
+.card-title {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0 0 0.4rem;
+}
+
+.read-more {
+  font-size: 0.85rem;
+  border: none;
+  color: var(--accent);
+}
+
+/* Journalism single */
+.pdf-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin: 2rem 0;
+}
+
+.pdf-link {
+  display: inline-block;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  border: none;
+}
+
+@media (max-width: 720px) {
+  .layout { flex-direction: column; }
+  .sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--line); }
+  .content { padding: 2rem 1.5rem 4rem; }
+}
